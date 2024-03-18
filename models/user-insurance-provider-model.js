@@ -2,8 +2,8 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../utilities/database');
 
-// Defining Zipcodes Model
-const zipCodes = sequelize.define('zipcodes', {
+// Defining User Insurance Model
+const UserInsuranceProvider = sequelize.define('userInsuranceProvider', {
   id: {
     allowNull: false,
     autoIncrement: false,
@@ -11,18 +11,13 @@ const zipCodes = sequelize.define('zipcodes', {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV4,
   },
-  regionId: {
+  userId: {
     type: Sequelize.UUID,
     allowNull: false,
   },
-  code: {
-    type: Sequelize.STRING,
+  insuranceProviderId: {
+    type: Sequelize.UUID,
     allowNull: false,
-  },
-  isActive: {
-    type: Sequelize.BOOLEAN,
-    allowNull: false,
-    defaultValue: true,
   },
   createdAt: {
     allowNull: false,
@@ -36,4 +31,4 @@ const zipCodes = sequelize.define('zipcodes', {
   },
 });
 
-module.exports = zipCodes;
+module.exports = UserInsuranceProvider;

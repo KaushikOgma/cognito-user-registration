@@ -2,8 +2,9 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../utilities/database');
 
-// Defining Zipcodes Model
-const zipCodes = sequelize.define('zipcodes', {
+
+// Defining User Document Model
+const UserDocument = sequelize.define('userDocument', {
   id: {
     allowNull: false,
     autoIncrement: false,
@@ -11,11 +12,28 @@ const zipCodes = sequelize.define('zipcodes', {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV4,
   },
-  regionId: {
+  documentTypeId: {
     type: Sequelize.UUID,
     allowNull: false,
   },
-  code: {
+  userId: {
+    type: Sequelize.UUID,
+    allowNull: false,
+  },
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  description: {
+    type: Sequelize.TEXT,
+    allowNull: true,
+    defaultValue: null,
+  },
+  mimeType: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  filePath: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -36,4 +54,4 @@ const zipCodes = sequelize.define('zipcodes', {
   },
 });
 
-module.exports = zipCodes;
+module.exports = UserDocument;

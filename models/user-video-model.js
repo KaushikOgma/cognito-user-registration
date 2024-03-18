@@ -2,8 +2,9 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../utilities/database');
 
-// Defining Zipcodes Model
-const zipCodes = sequelize.define('zipcodes', {
+
+// Defining User Video Model
+const UserVideo = sequelize.define('userVideos', {
   id: {
     allowNull: false,
     autoIncrement: false,
@@ -11,11 +12,32 @@ const zipCodes = sequelize.define('zipcodes', {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV4,
   },
-  regionId: {
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  description: {
+    type: Sequelize.TEXT,
+    allowNull: true,
+    defaultValue: null,
+  },
+  videoTypeId: {
     type: Sequelize.UUID,
     allowNull: false,
   },
-  code: {
+  userId: {
+    type: Sequelize.UUID,
+    allowNull: false,
+  },
+  mimeType: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  duration: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  filePath: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -36,4 +58,4 @@ const zipCodes = sequelize.define('zipcodes', {
   },
 });
 
-module.exports = zipCodes;
+module.exports = UserVideo;

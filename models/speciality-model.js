@@ -2,8 +2,8 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../utilities/database');
 
-// Defining Zipcodes Model
-const zipCodes = sequelize.define('zipcodes', {
+// Defining Regions Model
+const Spiciality = sequelize.define('spiciality', {
   id: {
     allowNull: false,
     autoIncrement: false,
@@ -11,13 +11,19 @@ const zipCodes = sequelize.define('zipcodes', {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV4,
   },
-  regionId: {
-    type: Sequelize.UUID,
+  title: {
+    type: Sequelize.STRING,
     allowNull: false,
   },
   code: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
+    defaultValue: null,
+  },
+  description: {
+    type: Sequelize.TEXT,
+    allowNull: true,
+    defaultValue: null,
   },
   isActive: {
     type: Sequelize.BOOLEAN,
@@ -36,4 +42,4 @@ const zipCodes = sequelize.define('zipcodes', {
   },
 });
 
-module.exports = zipCodes;
+module.exports = Spiciality;

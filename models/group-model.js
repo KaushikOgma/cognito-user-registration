@@ -2,8 +2,8 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../utilities/database');
 
-// Defining Zipcodes Model
-const zipCodes = sequelize.define('zipcodes', {
+// Defining County Model
+const Group = sequelize.define('group', {
   id: {
     allowNull: false,
     autoIncrement: false,
@@ -11,18 +11,18 @@ const zipCodes = sequelize.define('zipcodes', {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV4,
   },
-  regionId: {
-    type: Sequelize.UUID,
+  partnershipName: {
+    type: Sequelize.STRING,
     allowNull: false,
   },
   code: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  isActive: {
+  isRedeemed: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
-    defaultValue: true,
+    defaultValue: false,
   },
   createdAt: {
     allowNull: false,
@@ -36,4 +36,4 @@ const zipCodes = sequelize.define('zipcodes', {
   },
 });
 
-module.exports = zipCodes;
+module.exports = Group;

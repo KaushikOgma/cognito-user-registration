@@ -1,19 +1,26 @@
+/* Relations for patients */
 const Patients = require('../../models/patients-model');
 const Profiles = require('../../models/profiles-model');
+const Roles = require('../../models/roles-model');
+
+/**
+ * Defines the relation between Patients and Profiles, establishing a one-to-many relationship.
+ *
+ */
 exports.patientsRelation = () => {
-  Patients.hasMany(Profiles,{
+  Patients.hasMany(Profiles, {
     as: 'profiles',
     key: 'id',
     foreignKey: 'patientId',
     onUpdate: 'CASCADE',
     onDelete: 'CASCADE',
-  })
+  });
 
-  Profiles.belongsTo(Patients,{
-    as: 'patient',
+  Patients.belongsTo(Roles, {
+    as: 'role',
     key: 'id',
-    foreignKey: 'patientId',
+    foreignKey: 'roleId',
     onUpdate: 'CASCADE',
     onDelete: 'CASCADE',
-  })
-}
+  });
+};
