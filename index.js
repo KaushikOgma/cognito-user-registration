@@ -1,6 +1,5 @@
 // Import Required Modules
 const sequelize = require('./utilities/database');
-const { initializeSeeding } = require('./database/database-seed');
 const Patients = require('./models/patients-model');
 
 async function add_patient(data){
@@ -15,10 +14,10 @@ async function add_patient(data){
 
     if (!existingPatient) {
       // create new patient
-      await Patients.create({
-        emailAddress: data.email,
-        cognitoUserId: data.sub
-      });
+      // await Patients.create({
+      //   emailAddress: data.email,
+      //   cognitoUserId: data.sub
+      // });
       console.log(`Patient ${data.email} Created`);
     } else {
       console.log(`Patient (${data.email} - ${data.sub}) already exists`);
@@ -32,8 +31,6 @@ async function add_patient(data){
 exports.handler = async (event, context) => {
   // // Sync Sequelize DB
   // await sequelize.sync();
-  // Initialize Seeding
-  await initializeSeeding();
 
   console.log("event:: ",event)
   console.log("event.request.userAttributes:: ",event.request.userAttributes)

@@ -9,7 +9,7 @@
   "author": "Ogma Conceptions",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.4",
+    "dotenv": "^16.4.5",
     "mysql2": "^3.5.1",
     "sequelize": "^6.32.1"
   }
